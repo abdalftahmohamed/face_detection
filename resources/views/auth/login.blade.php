@@ -97,7 +97,8 @@
 
                     </div>
                     @if($type == 'teacher')
-                        <a href="{{route('signup.teachers')}}" class="primary-btn normal-btn" data-aos="flip-left" data-aos-delay="2400"
+                        <a href="{{route('signup.teachers')}}" class="primary-btn normal-btn" data-aos="flip-left"
+                           data-aos-delay="2400"
                            style="color: #ffffff;">
                             {{--                                <input type="submit" value="sign up" style="color: #ffffff;">--}}
                             sign up
@@ -182,9 +183,7 @@
 
                         </div>
                         <div class="contact_btn">
-
-                            <button class="primary-btn normal-btn" data-aos="flip-left" type="submit"><input type="submit" value="GoT"></button>
-
+                                <button class="primary-btn normal-btn" type="submit" style="color: white">submit</button>
                         </div>
 
                     </div>

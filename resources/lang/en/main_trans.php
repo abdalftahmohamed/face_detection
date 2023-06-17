@@ -4,8 +4,8 @@ return [
 
     'Dashboard'=>'Dashboard',
     'Dashboard_page'=>'Dashboard',
-    'Main_title' => 'Shahin School Management Program',
-    'Programname' => 'Shahin School Management Program',
+    'Main_title' => 'Attendance School Management',
+    'Programname' => 'Attendance School Management',
     'change_language'=>'language',
     'Grades'=>'Grades',
     'Grades_list'=>'Grades List',
@@ -34,7 +34,7 @@ return [
     'Settings'=>'Settings',
     'Users'=>'Users',
     'Copyright' => 'Copyright',
-    'Name_Programer' => 'Abdo Shahin All Rights Reserved',
+    'Name_Programer' => 'Admin All Rights Reserved',
     'management_pormotion'=>'Management pormotion',
     'management_Graduated'=>'Management Graduated',
     'add_graduated'=>'Add New Graduate'

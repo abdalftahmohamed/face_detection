@@ -34,7 +34,8 @@
 @include('layouts.header')
 
 <!-- Header Section End -->
-
+<br>
+<br>
 <!-- Abour sec -->
 <section class="about spad" id="about-sec">
     <div class="backgrnd_word">

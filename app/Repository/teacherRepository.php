@@ -84,7 +84,7 @@ class teacherRepository implements TeacherRepositoryInterface{
         $Teachers->message = $request->message;
         $Teachers->save();
         session()->flash('Add', trans('notifi.add'));
-        return redirect()->route('Teachers.index');
+        return redirect()->route('login.show','teacher');
     }
     public function attend(){
         $currentDate = Carbon::now()->format('Y-m-d');

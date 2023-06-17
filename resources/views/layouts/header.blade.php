@@ -67,8 +67,8 @@
                                 <span class="button-projects__line"></span>
                             </button>
                             <div class="projects__dropdown">
-                                <a href="{{route('login.show','student')}}" class="projects__subitem">students </a>
-                                <a href="{{route('login.show','teacher')}}" class="projects__subitem">teacher</a>
+                                <a href="{{route('login.show','student')}}" class="projects__subitem">Student </a>
+                                <a href="{{route('login.show','teacher')}}" class="projects__subitem">Teacher</a>
                                 <a href="{{route('login.show','admin')}}" class="projects__subitem">Admin</a>
                             </div>
                         </div>

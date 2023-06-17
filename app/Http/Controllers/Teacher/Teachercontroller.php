@@ -17,55 +17,125 @@ use Illuminate\Support\Facades\Hash;
 class Teachercontroller extends Controller
 {
 
-    protected $Teacher;
-
-    public function __construct(TeacherRepositoryInterface $Teacher)
-    {
-        $this->Teacher = $Teacher;
-    }
+//    protected $Teacher;
+//
+//    public function __construct(TeacherRepositoryInterface $Teacher)
+//    {
+//        $this->Teacher = $Teacher;
+//    }
 
     public function index()
     {
-        return $this->Teacher->getAllTeachers();
+        $Teachers=Teacher::all();
+        return view('pages.Teachers.Teachers', compact('Teachers'));
     }
 
     public function create()
     {
 
-        return $this->Teacher->Getspecialization_gender();
+        $specializations = specialization::all();
+        return view('pages.Teachers.create',compact('specializations'));
     }
 
 
     public function store(StoreTeachers $request)
     {
-        return $this->Teacher->StoreTeachers($request);
+        try {
+//            return $request;
+            $Teachers = new Teacher();
+            $Teachers->first_name =  $request->first_name;
+            $Teachers->last_name =  $request->last_name;
+            $Teachers->phone = $request->phone;
+            $Teachers->email = $request->email;
+            $Teachers->password =Hash::make($request->password);
+            $Teachers->Specialization_id = $request->Specialization_id;
+            $Teachers->address = $request->address;
+            $Teachers->save();
+            session()->flash('Add', trans('notifi.add'));
+            return redirect()->route('Teachers.index');
+        }
+        catch (Exception $e) {
+            return redirect()->back()->with(['error' => $e->getMessage()]);
+        }
     }
 
     public function edit($id)
     {
 
-        return $this->Teacher->editTeachers($id);
+        $Teachers= Teacher::findOrFail($id);
+        $specializations = specialization::all();
+        return view('pages.Teachers.Edit',compact('Teachers','specializations'));
     }
 
 
     public function update(Request $request)
     {
 
-        return $this->Teacher->UpdateTeachers($request);
+        try {
+            $Teachers = Teacher::findOrFail($request->id);
+            $Teachers->first_name =  $request->first_name;
+            $Teachers->last_name =  $request->last_name;
+            $Teachers->phone = $request->phone;
+            $Teachers->email = $request->email;
+            $Teachers->password =Hash::make($request->password);
+            $Teachers->Specialization_id = $request->Specialization_id;
+            $Teachers->address = $request->address;
+            $Teachers->save();
+            session()->flash('Update', trans('notifi.update'));
+            return redirect()->route('Teachers.index');
+        }
+        catch (Exception $e) {
+            return redirect()->back()->with(['error' => $e->getMessage()]);
+        }
+
     }
 
     public function destroy(Request $request)
     {
-        return $this->Teacher->DeleteTeachers($request);
+        Teacher::findOrFail($request->id)->delete();
+        session()->flash('delete', trans('notifi.delete'));
+        return redirect()->route('Teachers.index');
     }
 
 
     public function sinup(StoreTeachers $request){
-        return $this->Teacher->sinup($request);
+
+        try {
+        $Teachers = new Teacher();
+        $Teachers->first_name =  $request->first_name;
+        $Teachers->last_name =  $request->last_name;
+        $Teachers->phone = $request->phone;
+        $Teachers->email = $request->email;
+        $Teachers->password =Hash::make($request->password);
+        $Teachers->Specialization_id = $request->Specialization_id;
+        $Teachers->address = $request->address;
+        $Teachers->message = $request->message;
+        $Teachers->save();
+        session()->flash('Add', trans('notifi.add'));
+        return redirect()->route('login.show','teacher');
+        }
+        catch (Exception $e) {
+            return redirect()->back()->with(['error' => $e->getMessage()]);
+        }
+
 
     }
     public function attend(){
-        return $this->Teacher->attend();
+        $currentDate = Carbon::now()->format('Y-m-d');
+        $id=auth()->user()->id;
+//      mycursor.execute("SELECT COUNT(*) FROM accs_hist WHERE CONCAT(accs_date, accs_prsn) = CONCAT(curdate(), '" + pnbr + "')")
+        $check = DB::table('accs_hist')->where("CONCAT(accs_date,accs_prsn) = CONCAT($currentDate,$id)");
+
+
+        if ($check)
+        {
+            $j=trans('messages.Active');
+            return "<span class='badge badge-success' >$j</span>";
+        }
+        else{
+            $j=__('messages.InActive');
+            return "<span class='badge badge-danger'>$j</span>";
+        }
     }
 
 

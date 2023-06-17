@@ -2,8 +2,11 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Support\Facades\Hash;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Validation\ValidationException;
+use Symfony\Component\HttpFoundation\Response as ResponseAlias;
 
 class StoreStudentsRequest extends FormRequest
 {
@@ -25,19 +28,23 @@ class StoreStudentsRequest extends FormRequest
     public function rules()
     {
         return [
-//            'name_ar' => 'required',
-//            'name_en' => 'required',
+            'first_name' => 'required|string',
+            'last_name' => 'required|string',
+            'phone' => 'required|string|min:11',
             'email' => 'required|email|unique:students,email,'.$this->id,
-//            'password' => 'required|string|min:6|max:100',
-//            'gender_id' => 'required',
-//            'nationalitie_id' => 'required',
-//            'blood_id' => 'required',
-//            'Date_Birth' => 'required|date|date_format:Y-m-d',
-//            'Grade_id' => 'required',
-//            'Classroom_id' => 'required',
-//            'section_id' => 'required',
-//            'parent_id' => 'required',
-//            'academic_year' => 'required',
+            'password' => 'required|string|min:6|max:100',
+            'Passport_ID_Student' => 'required|integer|unique:students,Passport_ID_Student,'.$this->id,
+            'year' => 'required',
         ];
+    }
+    protected function failedValidation(Validator $validator)
+    {
+        $response = new JsonResponse([
+            'data' => [],
+            'message' => 'Validation Error',
+            'errors' => $validator->messages()->all(),
+        ], ResponseAlias::HTTP_UNPROCESSABLE_ENTITY);
+
+        throw new ValidationException($validator);
     }
 }

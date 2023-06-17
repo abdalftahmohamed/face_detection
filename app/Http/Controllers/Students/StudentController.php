@@ -33,7 +33,7 @@ class StudentController extends Controller
 
     public function store(StoreStudentsRequest $request)
     {
-
+//return $request;
         try {
             $students = new Student();
             $students->first_name = $request->first_name;
@@ -121,7 +121,7 @@ class StudentController extends Controller
             $students->specializations()->attach($request->specialization_id);
 //هنا النهاية للكود بتاعي
             toastr()->success(trans('messages.success'));
-            return redirect()->route('Students.index');
+            return redirect()->route('login.show','student');
         } catch (\Exception $e) {
 //            وهنا يعمل رجوع عن الحفظ
             DB::rollback();
