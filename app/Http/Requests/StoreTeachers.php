@@ -15,12 +15,12 @@ class StoreTeachers extends FormRequest
     {
         return [
             'email' => 'required|unique:teachers,email,'.$this->id,
-            'password' => 'required',
+            'password' => 'required|string|min:6|max:100',
             'first_name' => 'required',
             'last_name' => 'required',
             'Specialization_id' => 'required',
             'address' => 'required',
-            'phone'=>'required'
+            'phone' => 'required|string|min:11',
         ];
     }
     public function messages()

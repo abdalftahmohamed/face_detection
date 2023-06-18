@@ -76,8 +76,6 @@ header start-->
                     <form method="GET" action="{{ route('logout','student') }}">
                         @elseif(auth('teacher')->check())
                             <form method="GET" action="{{ route('logout','teacher') }}">
-                                @elseif(auth('parent')->check())
-                                    <form method="GET" action="{{ route('logout','parent') }}">
                                         @else
                                             <form method="GET" action="{{ route('logout','web') }}">
                                                 @endif

@@ -64,8 +64,10 @@ class SpecializationController extends Controller
     }
 
 
-    public function destroy($id)
+    public function destroy(Request $request,$id)
     {
-
+        Specialization::findOrFail($request->id)->delete();
+        session()->flash('delete', trans('notifi.delete'));
+        return redirect()->route('Specialization.index');
     }
 }

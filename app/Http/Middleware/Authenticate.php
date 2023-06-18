@@ -22,9 +22,9 @@ class Authenticate extends Middleware
             elseif(Request::is(app()->getLocale() . '/teacher/dashboard')) {
                 return route('selection');
             }
-            elseif(Request::is(app()->getLocale() . '/parent/dashboard')) {
-                return route('selection');
-            }
+//            elseif(Request::is(app()->getLocale() . '/parent/dashboard')) {
+//                return route('selection');
+//            }
             else {
                 return route('selection');
             }

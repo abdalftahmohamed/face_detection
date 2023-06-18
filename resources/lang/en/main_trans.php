@@ -4,8 +4,8 @@ return [
 
     'Dashboard'=>'Dashboard',
     'Dashboard_page'=>'Dashboard',
-    'Main_title' => 'Attendance School Management',
-    'Programname' => 'Attendance School Management',
+    'Main_title' => 'Attendance College Management',
+    'Programname' => 'Attendance College Management',
     'change_language'=>'language',
     'Grades'=>'Grades',
     'Grades_list'=>'Grades List',

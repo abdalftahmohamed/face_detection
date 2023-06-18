@@ -37,7 +37,7 @@
 <br>
 <br>
 <!-- Abour sec -->
-<section class="about spad" id="about-sec">
+<section class="about spad" id="about-sec"  >
     <div class="backgrnd_word">
         <span class="line" data-aos="fade-up" data-aos-delay="2200"> ABOUT</span>
     </div>
@@ -71,7 +71,7 @@
 <!-- Abour sec -->
 
 <!--Founder Gallary-->
-<section class="about_hero hero" id="project-sec">
+<section class="about_hero hero" id="project-sec" data-color-sec="dark">
     <div class="hero__slider owl-carousel">
         <div class="hero__items set-bg" data-setbg="img/about/about1.jpg"></div>
         <div class="hero__items set-bg" data-setbg="img/about/about2.jpg"></div>

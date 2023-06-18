@@ -112,8 +112,7 @@ class Teachercontroller extends Controller
         $Teachers->message = $request->message;
         $Teachers->save();
         session()->flash('Add', trans('notifi.add'));
-        return redirect()->route('login.show','teacher');
-        }
+            return redirect()->route('selection');        }
         catch (Exception $e) {
             return redirect()->back()->with(['error' => $e->getMessage()]);
         }

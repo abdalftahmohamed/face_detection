@@ -35,7 +35,7 @@
                                         <tr>
                                             <th>#</th>
                                             <th>Name</th>
-                                            <th>Notes</th>
+{{--                                            <th>Notes</th>--}}
                                             <th>process</th>
 
                                         </tr>
@@ -45,7 +45,7 @@
                                             <tr>
                                                 <td>{{ $loop->index+1 }}</td>
                                                 <td>{{$Specialization->name}}</td>
-                                                <td>{{$Specialization->notes}}</td>
+{{--                                                <td>{{$Specialization->notes}}</td>--}}
                                                 <td>
                                                     <div class="dropdown show">
                                                         <a class="btn btn-success btn-sm dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -53,12 +53,14 @@
                                                         </a>
                                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                                             <a class="dropdown-item" href="{{route('Specialization.edit',$Specialization->id)}}"><i style="color:green" class="fa fa-edit"></i>&nbsp;Edit</a>
-                                                            <a class="dropdown-item" href="#"><i style="color: #0000cc" class="fa fa-edit"></i>&nbsp;delete&nbsp;</a>
+                                                            <a class="dropdown-item" data-target="#Delete_Student{{ $Specialization->id }}" data-toggle="modal" href="#Delete_Student{{ $Specialization->id }}"><i style="color: red" class="fa fa-trash"></i>Delete</a>
+
                                                         </div>
                                                     </div>
                                                 </td>
 
                                             </tr>
+                                        @include('pages.Specialization.Delete')
 
                                         @endforeach
                                     </table>

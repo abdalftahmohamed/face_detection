@@ -121,7 +121,7 @@ class StudentController extends Controller
             $students->specializations()->attach($request->specialization_id);
 //هنا النهاية للكود بتاعي
             toastr()->success(trans('messages.success'));
-            return redirect()->route('login.show','student');
+            return redirect()->route('selection');
         } catch (\Exception $e) {
 //            وهنا يعمل رجوع عن الحفظ
             DB::rollback();

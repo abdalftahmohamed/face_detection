@@ -12,21 +12,19 @@ class RedirectIfAuthenticated
 
     public function handle($request, Closure $next)
     {
-        if (auth('web')->check()) {
+        if (Auth::guard('web')->check()) {
             return redirect(RouteServiceProvider::HOME);
         }
 
-        if (auth('student')->check()) {
+        if (Auth::guard('student')->check()) {
             return redirect(RouteServiceProvider::STUDENT);
+
         }
 
-        if (auth('teacher')->check()) {
+        if (Auth::guard('teacher')->check()) {
             return redirect(RouteServiceProvider::TEACHER);
         }
 
-        if (auth('parent')->check()) {
-            return redirect(RouteServiceProvider::PARENT);
-        }
 
         return $next($request);
     }

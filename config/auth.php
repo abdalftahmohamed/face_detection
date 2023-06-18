@@ -48,10 +48,7 @@ return [
             'driver' => 'session',
             'provider' => 'teachers',
         ],
-        'parent' => [
-            'driver' => 'session',
-            'provider' => 'my__parents',
-        ],
+
     ],
 
     /*
@@ -84,10 +81,7 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\Teacher::class,
         ],
-        'my__parents' => [
-            'driver' => 'eloquent',
-            'model' => App\Models\My_Parent::class,
-        ],
+
 
         // 'users' => [
         //     'driver' => 'database',

@@ -1,6 +1,6 @@
 
 <!-- Page Preloder -->
-<div id="preloder">
+<div id="preloder" >
     <div class="loader">
         <div>
             <span class="bigletter letters-1">V</span>
@@ -42,7 +42,7 @@
                         </a>
                     </div>
 
-                    <div class="white-logo hide" id="white-logo">
+                    <div class="white-logo hide" id="white-logo" >
                         <a href="{{route('selection')}}" >
                             <img src="/img/logo/VIVID-white.png" alt="logo-vivda">
                         </a>
@@ -50,12 +50,13 @@
                 </div>
             </div>
             <div class="col-lg-9">
-                <nav class="header__menu mobile-menu">
+                <nav class="header__menu mobile-menu" >
                     <!-- Nav Toggler Btn -->
-                    <a href="./bigfooter.html">
-                        <div class="nav-toggler closenavtglr hide" id="littlebtn">
-                            <span></span>
-                            <span></span>
+                    <a href="{{route('selection')}}">
+                        <div class="menuheader projects menu__projects" id="littlebtn">
+                            <span class="button-projects__line"></span>
+                            <span class="button-projects__line"></span>
+                            <span class="button-projects__line"></span>
                         </div>
                     </a>
 
@@ -73,7 +74,7 @@
                             </div>
                         </div>
 
-                        <li class="menuheader"><a href="./projects.html">Partners</a></li>
+                        <li class="menuheader"><a href="#">Partners</a></li>
                         <li class="menuheader"><a href="{{route('contacts.about')}}">About</a></li>
 
                         <li class="menuheader"><a href="{{route('contacts.index')}}">Contact</a></li>

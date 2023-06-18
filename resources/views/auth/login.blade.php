@@ -182,12 +182,13 @@
                             </div>
 
                         </div>
-                        <div class="contact_btn">
-                                <button class="primary-btn normal-btn" type="submit" style="color: white">submit</button>
-                        </div>
+{{--                        <div class="contact_btn">--}}
+{{--                                <button class="primary-btn normal-btn" type="submit" style="color: white">submit</button>--}}
+{{--                        </div>--}}
 
                     </div>
                 </div>
+                <button class="primary-btn normal-btn" type="submit" style="color: white">submit</button>
 
             </form>
 
