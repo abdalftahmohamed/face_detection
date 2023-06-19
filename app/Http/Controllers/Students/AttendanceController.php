@@ -13,9 +13,6 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class AttendanceController extends Controller
 {
-
-
-
     public function index()
     {
         $currentDate=\Carbon\Carbon::now()->format('Y-m-d');

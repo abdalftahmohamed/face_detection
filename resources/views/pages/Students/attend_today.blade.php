@@ -24,33 +24,43 @@
 
                                 @include('sessions')
                                 Welcome : {{\Illuminate\Support\Facades\Auth::user()->first_name}}
-{{--                                <a href="{{route('Students.create')}}" class="btn btn-success btn-sm" role="button"--}}
-{{--                                   aria-pressed="true">{{trans('main_trans.add_student')}}</a><br><br>--}}
+                                <br>
+                                <a class="modal-effect btn btn-sm btn-success" href="{{ url('export_excel') }}"
+                                   style="color:white;float: left"><i class="fas fa-file-download"></i>export_excel</a>
+                                <br>
 
-                                <a class="modal-effect btn btn-sm btn-primary" href="{{ url('export_excel') }}"
-                                   style="color:white"><i class="fas fa-file-download"></i>export_excel</a>
                                 <div class="table-responsive">
+
                                     <table id="datatable" class="table  table-hover table-sm table-bordered p-0"
                                            data-page-length="50"
                                            style="text-align: center">
+
                                         <thead>
                                         <tr>
-                                            <th>#</th>
+                                            <th>ID</th>
+                                            <th>name</th>
+                                            <th>Email</th>
+                                            <th>Phone</th>
                                             <th>Dates</th>
-
-
                                         </tr>
                                         </thead>
                                         <tbody>
                                         @foreach($attends_today as $x)
                                             <tr>
-                                                <td>{{ $loop->index+1 }}</td>
+{{--                                                <td>{{ $loop->index+1 }}</td>--}}
+                                                <td>{{$x->students->id}}</td>
+                                                <td>{{$x->students->first_name.$x->students->last_name}}</td>
+                                                <td>{{$x->students->email}}</td>
+                                                <td>{{$x->students->phone}}</td>
                                                 <td>{{$x->accs_added}}</td>
                                             </tr>
                                         @endforeach
                                     </table>
+
                                 </div>
+
                             </div>
+
                         </div>
                     </div>
                 </div>

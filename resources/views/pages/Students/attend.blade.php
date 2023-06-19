@@ -44,7 +44,7 @@
                                         <tbody>
                                         @foreach($attends as $x)
                                             <tr>
-                                                <td>{{ $loop->index+1 }}</td>
+                                                <td>{{ $loop->index+1}}</td>
                                                 <td>{{$x->accs_added}}</td>
                                             </tr>
                                         @endforeach
